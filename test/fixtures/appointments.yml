@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  patient_id: 1
+  schedule_id: 1
+  date: 2011-10-11 16:08:22
+
+two:
+  patient_id: 1
+  schedule_id: 1
+  date: 2011-10-11 16:08:22

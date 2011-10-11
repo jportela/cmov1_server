@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  date: 2011-10-11 16:07:14
+  start_hour: MyString
+  end_hour: MyString
+  schedule_plan_id: 1
+
+two:
+  date: 2011-10-11 16:07:14
+  start_hour: MyString
+  end_hour: MyString
+  schedule_plan_id: 1

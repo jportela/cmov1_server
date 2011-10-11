@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  birthdate: 2011-10-11 16:02:56
+  photo: MyString
+  username: MyString
+  password_md5: MyString
+
+two:
+  name: MyString
+  birthdate: 2011-10-11 16:02:56
+  photo: MyString
+  username: MyString
+  password_md5: MyString

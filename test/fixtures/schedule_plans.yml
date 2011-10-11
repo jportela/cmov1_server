@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  start_date: 2011-10-11 16:06:06
+  doctor_id: 1
+
+two:
+  start_date: 2011-10-11 16:06:06
+  doctor_id: 1
