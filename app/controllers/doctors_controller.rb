@@ -80,4 +80,11 @@ class DoctorsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  def specialities    
+    respond_to do |format|
+      format.json { render json: Speciality.all }
+    end
+  end
+  
 end

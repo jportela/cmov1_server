@@ -31,6 +31,10 @@
     <%= f.label :password_md5 %><br />
     <%= f.text_field :password_md5 %>
   </div>
+  <div class="field">
+	<%= f.label :speciality_id %>
+    <%= f.select :speciality_id, Doctor.get_specialities %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

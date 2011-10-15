@@ -25,6 +25,10 @@
   <%= @doctor.password_md5 %>
 </p>
 
+<p>
+  <b>Speciality:</b>
+  <%= @doctor.speciality.name %>
+</p>
 
 <%= link_to 'Edit', edit_doctor_path(@doctor) %> |
 <%= link_to 'Back', doctors_path %>
