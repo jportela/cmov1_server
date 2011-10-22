@@ -11,6 +11,8 @@ Cmov1Server::Application.routes.draw do
 
   resources :patients
   
+  match 'system/time' => 'application#system_time'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
