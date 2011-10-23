@@ -91,10 +91,10 @@ class DoctorsController < ApplicationController
     
   end
   
-  def update_specialities
-    to_update = Speciality.get_updated(params[:time])
+  def updated_specialities
+      to_update = Speciality.get_updated(params[:time])
     respond_to do |format|
-      format.json { render json: Speciality.get_updated(to_update) }
+      format.json { render json: to_update }
     end
   end
   

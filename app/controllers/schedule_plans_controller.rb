@@ -88,6 +88,9 @@ class SchedulePlansController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  # GET /schedule_plans/1/get_block.json
+  
   def get_block
     # mete aqui o codigo para criar novo no servidor (ver exemplos de POST)
     respond_to do |format|
