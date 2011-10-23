@@ -83,15 +83,21 @@ class SchedulePlansController < ApplicationController
   
   # POST /schedule_plans/1/new_block.json
   def new_block
-    # mete aqui o codigo para criar novo no servidor (ver exemplos de POST)
-    respond_to do |format|
-      format.json { head :ok }
-    end
+      @schedule = Schedule.new
+      
+      respond_to do |format|
+          format.html # new.html.erb
+          format.json { render json: @schedule }
+      end
   end
+ 
+    #GET /schedule_plans/1/get_block.json
   def get_block
-    # mete aqui o codigo para criar novo no servidor (ver exemplos de POST)
-    respond_to do |format|
-      format.json { render json: {:sebuxo => "ok"} }
-    end
+      @schedule = Schedule.find(params[:id])
+      
+      respond_to do |format|
+          format.html # show.html.erb
+          format.json { render json: @schedule}
+      end
   end
 end
