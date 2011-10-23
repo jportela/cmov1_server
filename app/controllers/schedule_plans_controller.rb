@@ -80,4 +80,18 @@ class SchedulePlansController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  # POST /schedule_plans/1/new_block.json
+  def new_block
+    # mete aqui o codigo para criar novo no servidor (ver exemplos de POST)
+    respond_to do |format|
+      format.json { head :ok }
+    end
+  end
+  def get_block
+    # mete aqui o codigo para criar novo no servidor (ver exemplos de POST)
+    respond_to do |format|
+      format.json { render json: {:sebuxo => "ok"} }
+    end
+  end
 end
