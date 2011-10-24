@@ -83,11 +83,14 @@ class SchedulePlansController < ApplicationController
   
   # POST /schedule_plans/1/new_block.json
   def new_block
-      @schedule = Schedule.new
-      
+      @schedule = Schedule.new(params[:schedule])
+
       respond_to do |format|
-          format.html # new.html.erb
-          format.json { render json: @schedule }
+        if @schedule.save
+          format.json { render json: @schedule, status: :created, location: @schedule }
+        else
+          format.json { render json: @schedule.errors, status: :unprocessable_entity }
+        end
       end
   end
  
