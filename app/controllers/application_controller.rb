@@ -7,5 +7,4 @@ class ApplicationController < ActionController::Base
       format.json { render json: { :time => Time.now } }
     end
   end
-  
 end

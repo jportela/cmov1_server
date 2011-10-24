@@ -6,7 +6,7 @@ class SchedulePlansController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @schedule_plans }
+      format.json { render :json => @schedule_plans.to_json(:except => [:created_at, :updated_at]) }
     end
   end
 
@@ -17,7 +17,7 @@ class SchedulePlansController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @schedule_plan }
+      format.json { render :json => @schedule_plan.to_json(:except => [:created_at, :updated_at]) }
     end
   end
 
@@ -28,7 +28,7 @@ class SchedulePlansController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @schedule_plan }
+      format.json { render :json => @schedule_plan.to_json(:except => [:created_at, :updated_at]) }
     end
   end
 
@@ -45,7 +45,7 @@ class SchedulePlansController < ApplicationController
     respond_to do |format|
       if @schedule_plan.save
         format.html { redirect_to @schedule_plan, notice: 'Schedule plan was successfully created.' }
-        format.json { render json: @schedule_plan, status: :created, location: @schedule_plan }
+        format.json { render :json => @schedule_plan.to_json(:except => [:created_at, :updated_at]), status: :created, location: @schedule_plan }
       else
         format.html { render action: "new" }
         format.json { render json: @schedule_plan.errors, status: :unprocessable_entity }

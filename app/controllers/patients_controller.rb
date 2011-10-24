@@ -6,7 +6,7 @@ class PatientsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @patients }
+      format.json { render :json => @patients.to_json(:except => [:created_at, :updated_at]) }
     end
   end
 
@@ -17,7 +17,7 @@ class PatientsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @patient }
+      format.json { render :json => @patient.to_json(:except => [:created_at, :updated_at]) }
     end
   end
 
@@ -28,7 +28,7 @@ class PatientsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @patient }
+      format.json { render :json => @patient.to_json(:except => [:created_at, :updated_at]) }
     end
   end
 
@@ -45,7 +45,7 @@ class PatientsController < ApplicationController
     respond_to do |format|
       if @patient.save
         format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
-        format.json { render json: @patient, status: :created, location: @patient }
+        format.json { render :json => @patient.to_json(:except => [:created_at, :updated_at]), status: :created, location: @patient }
       else
         format.html { render action: "new" }
         format.json { render json: @patient.errors, status: :unprocessable_entity }

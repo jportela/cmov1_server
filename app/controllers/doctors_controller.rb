@@ -6,7 +6,7 @@ class DoctorsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @doctors }
+      format.json { render :json => @doctors.to_json(:except => [:created_at, :updated_at]) }
     end
   end
 
@@ -17,7 +17,7 @@ class DoctorsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @doctor }
+      format.json { render :json => @doctor.to_json(:except => [:created_at, :updated_at]) }
     end
   end
 
@@ -28,7 +28,7 @@ class DoctorsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @doctor }
+      format.json { render :json => @doctor.to_json(:except => [:created_at, :updated_at]) }
     end
   end
 
@@ -45,7 +45,7 @@ class DoctorsController < ApplicationController
     respond_to do |format|
       if @doctor.save
         format.html { redirect_to @doctor, notice: 'Doctor was successfully created.' }
-        format.json { render json: @doctor, status: :created, location: @doctor }
+        format.json { render :json => @doctor.to_json(:except => [:created_at, :updated_at]), status: :created, location: @doctor }
       else
         format.html { render action: "new" }
         format.json { render json: @doctor.errors, status: :unprocessable_entity }
@@ -83,7 +83,7 @@ class DoctorsController < ApplicationController
   
   def specialities    
     respond_to do |format|
-      format.json { render json: Speciality.all }
+      format.json { render :json => Speciality.all.to_json(:except => [:created_at, :updated_at]) }
     end
   end
   
@@ -94,7 +94,7 @@ class DoctorsController < ApplicationController
   def updated_specialities
       to_update = Speciality.get_updated(params[:time])
     respond_to do |format|
-      format.json { render json: to_update }
+      format.json { render :json => to_update.to_json(:except => [:created_at, :updated_at]) }
     end
   end
   
