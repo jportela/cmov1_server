@@ -90,8 +90,8 @@ class SchedulePlansController < ApplicationController
           format.json { render json: @schedule }
       end
   end
- 
-    #GET /schedule_plans/1/get_block.json
+  
+  # GET /schedule_plans/1/get_block.json
   def get_block
       @schedule = Schedule.find(params[:id])
       

@@ -11,6 +11,7 @@ Cmov1Server::Application.routes.draw do
   resources :doctors do
     collection do
       get 'specialities'
+      get 'specialities/updated' => 'doctors#updated_specialities'
     end
   end
 
