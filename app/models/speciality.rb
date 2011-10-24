@@ -1,5 +1,5 @@
 class Speciality < ActiveRecord::Base
-  
+  has_many :doctors
   def self.get_updated(time = "")
     if (!time || time.empty?)
       return Speciality.all

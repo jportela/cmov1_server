@@ -1,11 +1,10 @@
 Cmov1Server::Application.routes.draw do
   resources :appointments
 
+  resources :schedules
+  
   resources :schedule_plans do
-    member do
-      post 'new_block'
-      get 'get_block'
-    end
+    resources :schedules
   end
 
   resources :doctors do
