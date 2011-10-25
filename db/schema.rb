@@ -51,13 +51,11 @@ ActiveRecord::Schema.define(:version => 20111025004600) do
   end
 
   create_table "schedules", :force => true do |t|
-    t.string   "start_hour"
-    t.string   "end_hour"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.integer  "schedule_plan_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "start_date"
-    t.datetime "end_date"
   end
 
   create_table "specialities", :force => true do |t|
