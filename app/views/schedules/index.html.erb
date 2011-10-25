@@ -2,9 +2,8 @@
 
 <table>
   <tr>
-    <th>Date</th>
-    <th>Start hour</th>
-    <th>End hour</th>
+    <th>Start date</th>
+    <th>End date</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,9 +11,8 @@
 
 <% @schedules.each do |schedule| %>
   <tr>
-    <td><%= schedule.date %></td>
-    <td><%= schedule.start_hour %></td>
-    <td><%= schedule.end_hour %></td>
+    <td><%= schedule.start_date %></td>
+    <td><%= schedule.end_date %></td>
     <td><%= link_to 'Show', schedule_plan_schedule_path(schedule.schedule_plan,schedule) %></td>
     <td><%= link_to 'Edit', edit_schedule_plan_schedule_path(schedule.schedule_plan, schedule) %></td>
     <td><%= link_to 'Destroy', schedule_plan_schedule_path(schedule.schedule_plan,schedule), confirm: 'Are you sure?', method: :delete %></td>

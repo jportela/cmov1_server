@@ -12,16 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :date %><br />
-    <%= f.datetime_select :date %>
+    <%= f.label :start_date %><br />
+    <%= f.datetime_select :start_date %>
   </div>
   <div class="field">
-    <%= f.label :start_hour %><br />
-    <%= f.text_field :start_hour %>
-  </div>
-  <div class="field">
-    <%= f.label :end_hour %><br />
-    <%= f.text_field :end_hour %>
+    <%= f.label :end_date %><br />
+    <%= f.datetime_select :end_date %>
   </div>
 	<%= f.hidden_field :schedule_plan_id, :value => params[:schedule_plan_id] %>
   <div class="actions">
