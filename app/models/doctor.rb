@@ -19,13 +19,4 @@ class Doctor < ActiveRecord::Base
       return Doctor.where("updated_at > ?", time.to_datetime.advance(:hours => -1))
     end
   end
-  
-  def get_future_appointments
-    appointments = self.appointments
-    future_appointments = []
-    appointments.each { |ap|
-      (future_appointments << ap) unless (ap.schedule.end_date < Time.now)
-    }
-    return future_appointments
-  end
 end
