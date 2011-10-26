@@ -1,16 +1,24 @@
 Cmov1Server::Application.routes.draw do
   resources :appointments
 
-  resources :schedules
+  resources :schedules do
+    collection do
+      get 'updated'
+    end
+  end
   
   resources :schedule_plans do
     resources :schedules
+    collection do
+      get 'updated'
+    end
   end
 
   resources :doctors do
     collection do
       get 'specialities'
       get 'specialities/updated' => 'doctors#updated_specialities'
+      get 'updated' => 'doctors#updated'
     end
   end
 

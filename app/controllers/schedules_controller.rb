@@ -83,4 +83,11 @@ class SchedulesController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  def updated
+      to_update = Schedule.get_updated(params[:time])
+    respond_to do |format|
+      format.json { render :json => to_update.to_json(:except => [:created_at, :updated_at]) }
+    end
+  end
 end

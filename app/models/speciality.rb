@@ -4,7 +4,7 @@ class Speciality < ActiveRecord::Base
     if (!time || time.empty?)
       return Speciality.all
     else
-      return Speciality.where("updated_at > ?", time.to_datetime)
+      return Speciality.where("updated_at > ?", time.to_datetime.advance(:hours => -1))
     end
   end
   
