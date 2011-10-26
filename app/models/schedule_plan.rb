@@ -1,5 +1,6 @@
 class SchedulePlan < ActiveRecord::Base
   has_many :schedules
+  belongs_to :doctor
   
   def self.get_updated(time = "")
     if (!time || time.empty?)

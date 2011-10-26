@@ -1,5 +1,9 @@
 class Doctor < ActiveRecord::Base
   belongs_to :speciality
+  has_many :appointments
+  has_many :patients, :through => :appointments
+  has_many :schedule_plans
+  
   def self.get_specialities
     Speciality.all.map { |sp| [sp.name, sp.id] }
   end

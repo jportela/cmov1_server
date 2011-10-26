@@ -1,5 +1,6 @@
 class Schedule < ActiveRecord::Base
   belongs_to :schedule_plan
+  has_one :appointment
   
   def self.get_updated(time = "")
     if (!time || time.empty?)
@@ -10,3 +11,4 @@ class Schedule < ActiveRecord::Base
   end
   
 end
+gg

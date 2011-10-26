@@ -6,7 +6,7 @@ class AppointmentsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @appointments }
+      format.json { render :json => @appointments.to_json(:except => [:created_at, :updated_at]) }
     end
   end
 
@@ -17,7 +17,7 @@ class AppointmentsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @appointment }
+      format.json { render :json => @appointment.to_json(:except => [:created_at, :updated_at]) }
     end
   end
 
@@ -28,7 +28,7 @@ class AppointmentsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @appointment }
+      format.json { render :json => @appointment.to_json(:except => [:created_at, :updated_at]) }
     end
   end
 
@@ -45,7 +45,7 @@ class AppointmentsController < ApplicationController
     respond_to do |format|
       if @appointment.save
         format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
-        format.json { render json: @appointment, status: :created, location: @appointment }
+        format.json { render :json => @appointment.to_json(:except => [:created_at, :updated_at]), status: :created, location: @appointment }
       else
         format.html { render action: "new" }
         format.json { render json: @appointment.errors, status: :unprocessable_entity }
