@@ -20,6 +20,9 @@ Cmov1Server::Application.routes.draw do
       get 'specialities/updated' => 'doctors#updated_specialities'
       get 'updated' => 'doctors#updated'
     end
+    member do 
+      get 'appointments'
+    end
   end
 
   resources :patients

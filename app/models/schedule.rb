@@ -11,4 +11,3 @@ class Schedule < ActiveRecord::Base
   end
   
 end
-gg

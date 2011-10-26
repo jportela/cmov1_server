@@ -20,4 +20,12 @@ class Doctor < ActiveRecord::Base
     end
   end
   
+  def get_future_appointments
+    appointments = self.appointments
+    future_appointments = []
+    appointments.each { |ap|
+      (future_appointments << ap) unless (ap.schedule.end_date < Time.now)
+    }
+    return future_appointments
+  end
 end
