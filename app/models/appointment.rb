@@ -3,5 +3,6 @@ class Appointment < ActiveRecord::Base
   belongs_to :patient
   belongs_to :schedule
   
-  scope :future, joins(:schedule).where("schedules.end_date > ?", Time.now).order("schedules.start_date")
+  # scope :future, joins(:schedule).where("schedules.end_date > ?", Time.now).order("schedules.start_date")
+  scope :future, where("date > ?", Time.now).order("date")
 end
