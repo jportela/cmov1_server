@@ -25,7 +25,11 @@ Cmov1Server::Application.routes.draw do
     end
   end
 
-  resources :patients
+  resources :patients do
+    member do 
+      get 'appointments'
+    end
+  end
   
   match 'system/time' => 'application#system_time'
   

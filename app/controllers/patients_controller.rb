@@ -80,4 +80,12 @@ class PatientsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  def appointments
+    patient = Patient.find(params[:id])
+    appointments = patient.appointments.future
+    respond_to do |format|
+      format.json { render :json => appointments.to_json(:except => [:created_at, :updated_at]) }
+    end
+  end
 end
