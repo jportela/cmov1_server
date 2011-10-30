@@ -113,4 +113,12 @@ class DoctorsController < ApplicationController
     end
   end
   
+  def current_plan
+    doctor = Doctor.find(params[:id])
+    plan = doctor.schedule_plans.where("start_date < ?", Time.now).order("start_date DESC").first
+    respond_to do |format|
+      format.json { render :json => plan.to_json(:except => [:created_at, :updated_at]) }
+    end
+  end
+  
 end

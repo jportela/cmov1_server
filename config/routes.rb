@@ -22,6 +22,7 @@ Cmov1Server::Application.routes.draw do
     end
     member do 
       get 'appointments'
+      get 'current_plan'
     end
   end
 
