@@ -37,6 +37,8 @@ Cmov1Server::Application.routes.draw do
   match 'system/time' => 'application#system_time'
   
   match 'system/auth' => 'application#system_auth'
+
+  match 'system/stats' => 'application#system_stats'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
