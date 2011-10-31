@@ -138,4 +138,21 @@ class DoctorsController < ApplicationController
       end
     end
   
+  def stats 
+    doctor = Doctor.find(params[:id])
+    array = doctor.appointments.group("patient").count.max
+    patient_appointments_count = array[1]
+    patient_with_most_appointments = array[0]
+    
+    months_appointments = doctor.appointments.group_by { |t| t.date.month.to_s + "-" + t.date.year.to_s }
+    
+    months_appointments.each {|k,v| months_appointments[k] = v.count }
+    
+    
+    respond_to do |format|
+      format.json { render json: { months: months_appointments, patient: patient_with_most_appointments,
+                                   patient_count: patient_appointments_count } }
+    end
+  end
+  
 end

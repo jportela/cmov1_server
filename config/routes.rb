@@ -25,6 +25,7 @@ Cmov1Server::Application.routes.draw do
       get 'current_plan'
       get 'current_plans'
       get 'furthest_appointment'
+      get 'stats'
     end
   end
 
