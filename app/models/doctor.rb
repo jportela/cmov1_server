@@ -5,7 +5,7 @@ class Doctor < ActiveRecord::Base
   has_many :schedule_plans
   
   def self.get_specialities
-    Speciality.all.map { |sp| [sp.name, sp.id] }
+    Speciality.all.map { |sp| [sp.sname, sp.id] }
   end
   
   def speciality
