@@ -3,7 +3,7 @@ class SchedulesController < ApplicationController
   # GET /schedules_plan/1/schedules.json
   def index
     @schedule_plan = SchedulePlan.find(params[:schedule_plan_id])
-    @schedules = @schedule_plan.schedules
+    @schedules = @schedule_plan.schedules.order("start_date")
 
     respond_to do |format|
       format.html # index.html.erb

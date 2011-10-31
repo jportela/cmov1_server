@@ -114,11 +114,28 @@ class DoctorsController < ApplicationController
   end
   
   def current_plan
-    doctor = Doctor.find(params[:id])
-    plan = doctor.schedule_plans.where("start_date < ?", Time.now).order("start_date DESC").first
-    respond_to do |format|
-      format.json { render :json => plan.to_json(:except => [:created_at, :updated_at]) }
+     doctor = Doctor.find(params[:id])
+     plan = doctor.schedule_plans.where("start_date < ?", Time.now).order("start_date DESC").first
+     respond_to do |format|
+       format.json { render :json => plan.to_json(:except => [:created_at, :updated_at]) }
+     end
+   end
+   
+   def current_plans
+      doctor = Doctor.find(params[:id])
+      plans = doctor.schedule_plans.where("start_date >= ?", Time.now).order("start_date DESC") 
+      plans << doctor.schedule_plans.where("start_date < ?", Time.now).order("start_date DESC").first
+      respond_to do |format|
+        format.json { render :json => plans.to_json(:except => [:created_at, :updated_at]) }
+      end
     end
-  end
+    
+    def furthest_appointment
+      doctor = Doctor.find(params[:id])
+      app = doctor.appointments.order("date DESC").first
+      respond_to do |format|
+        format.json { render :json => app.to_json(:except => [:created_at, :updated_at]) }
+      end
+    end
   
 end

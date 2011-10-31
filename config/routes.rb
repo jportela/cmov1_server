@@ -23,6 +23,8 @@ Cmov1Server::Application.routes.draw do
     member do 
       get 'appointments'
       get 'current_plan'
+      get 'current_plans'
+      get 'furthest_appointment'
     end
   end
 
@@ -33,6 +35,8 @@ Cmov1Server::Application.routes.draw do
   end
   
   match 'system/time' => 'application#system_time'
+  
+  match 'system/auth' => 'application#system_auth'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
