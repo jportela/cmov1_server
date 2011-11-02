@@ -140,9 +140,16 @@ class DoctorsController < ApplicationController
   
   def stats 
     doctor = Doctor.find(params[:id])
-    array = doctor.appointments.group("patient").count.max
-    patient_appointments_count = array[1]
-    patient_with_most_appointments = array[0]
+    array = doctor.appointments.group("patient").count 
+    patient_appointments_count = 0
+    patient_with_most_appointments = nil
+    
+    array.each { |k,v|
+      if v > patient_appointments_count
+        patient_appointments_count = v
+        patient_with_most_appointments = k
+      end
+    }
     
     array = doctor.appointments.group_by { |t| t.date.month.to_s + "-" + t.date.year.to_s }
     
